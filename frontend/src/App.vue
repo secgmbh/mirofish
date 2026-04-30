@@ -1,29 +1,13 @@
 <template>
   <router-view />
 </template>
-
-<script setup>
-</script>
-
+<script setup></script>
 <style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-#app {
-  font-family: 'JetBrains Mono', 'Space Grotesk', 'Noto Sans SC', monospace;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #0F1B3D;
-  background-color: #ffffff;
-}
-
-::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: #EFF6FF; }
-::-webkit-scrollbar-thumb { background: #2563EB; border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: #1D4ED8; }
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html, body { background: #111111; color: #ffffff; }
+#app { font-family: 'Manrope', 'Sora', Arial, sans-serif; -webkit-font-smoothing: antialiased; background: #111111; color: #ffffff; }
+::-webkit-scrollbar { width: 8px; }
+::-webkit-scrollbar-track { background: #1a1a1a; }
+::-webkit-scrollbar-thumb { background: #45d0bd; border-radius: 4px; }
 button { font-family: inherit; }
 </style>
