@@ -26,33 +26,102 @@
         <div class="hba-bottom-fade"></div>
       </div>
       <div class="hero-body">
+
+        <!-- LEFT: Text -->
         <div class="hero-text">
+          <div class="hero-eyebrow">
+            <span class="hero-eyebrow-dot"></span>
+            {{ $t('home.tagline') }}
+          </div>
           <h1 class="hero-h1">
             {{ $t('home.heroTitle1') }}<br>
             {{ $t('home.heroTitle2') }}
           </h1>
-          <p class="hero-sub">{{ $t('home.heroDescBrand') }} — {{ $t('home.slogan') }}</p>
-          <button class="btn-discover" @click="scrollToStart">
-            <span>{{ $t('home.startEngine') }}</span>
-            <i>&#8599;</i>
-          </button>
+          <p class="hero-sub">
+            <i18n-t keypath="home.heroDesc" tag="span">
+              <template #brand><strong>{{ $t('home.heroDescBrand') }}</strong></template>
+              <template #agentScale><span class="hero-accent">{{ $t('home.heroDescAgentScale') }}</span></template>
+              <template #optimalSolution><em class="hero-em">{{ $t('home.heroDescOptimalSolution') }}</em></template>
+            </i18n-t>
+          </p>
+          <p class="hero-slogan">{{ $t('home.slogan') }}</p>
+          <div class="hero-actions">
+            <button class="btn-discover" @click="scrollToStart">
+              <span>{{ $t('home.startEngine') }}</span>
+              <i>&#8599;</i>
+            </button>
+            <button class="btn-ghost-hero" @click="scrollToSteps">
+              {{ $t('home.workflowSequence') }} &#8595;
+            </button>
+          </div>
+          <div class="hero-stats-row">
+            <div class="hsr-item">
+              <span class="hsr-num">{{ $t('home.metricLowCostDesc') }}</span>
+              <span class="hsr-lbl">{{ $t('home.metricLowCost') }}</span>
+            </div>
+            <div class="hsr-div"></div>
+            <div class="hsr-item">
+              <span class="hsr-num">&#8734;</span>
+              <span class="hsr-lbl">{{ $t('home.metricHighAvailDesc') }}</span>
+            </div>
+            <div class="hsr-div"></div>
+            <div class="hsr-item">
+              <span class="hsr-num">5</span>
+              <span class="hsr-lbl">Steps</span>
+            </div>
+          </div>
         </div>
-        <div class="hero-badge-box">
-          <div class="hbb-stat">
-            <span class="hbb-num">{{ $t('home.metricLowCostDesc') }}</span>
-            <span class="hbb-label">{{ $t('home.metricLowCost') }}</span>
+
+        <!-- RIGHT: Animated Network Visualization -->
+        <div class="hero-visual">
+          <div class="hv-glow"></div>
+          <svg class="hv-svg" viewBox="0 0 460 400" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="230" cy="200" r="150" fill="none" stroke="rgba(69,208,189,0.06)" stroke-width="1"/>
+            <circle cx="230" cy="200" r="100" fill="none" stroke="rgba(69,208,189,0.08)" stroke-width="1"/>
+            <circle cx="230" cy="200" r="50"  fill="none" stroke="rgba(69,208,189,0.12)" stroke-width="1"/>
+            <line x1="230" y1="200" x2="90"  y2="80"  stroke="rgba(69,208,189,0.4)"  stroke-width="1.5"/>
+            <line x1="230" y1="200" x2="370" y2="80"  stroke="rgba(100,150,255,0.4)" stroke-width="1.5"/>
+            <line x1="230" y1="200" x2="60"  y2="230" stroke="rgba(69,208,189,0.3)"  stroke-width="1"/>
+            <line x1="230" y1="200" x2="400" y2="230" stroke="rgba(100,150,255,0.3)" stroke-width="1"/>
+            <line x1="230" y1="200" x2="140" y2="340" stroke="rgba(130,100,255,0.3)" stroke-width="1"/>
+            <line x1="230" y1="200" x2="320" y2="340" stroke="rgba(69,208,189,0.3)"  stroke-width="1"/>
+            <line x1="230" y1="200" x2="230" y2="50"  stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
+            <line x1="90"  y1="80"  x2="370" y2="80"  stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+            <line x1="60"  y1="230" x2="140" y2="340" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <line x1="400" y1="230" x2="320" y2="340" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+            <g class="hv-node hv-n1"><circle cx="90"  cy="80"  r="14" fill="#45d0bd" opacity="0.9"/><circle cx="90"  cy="80"  r="22" fill="none" stroke="#45d0bd" stroke-width="1" opacity="0.3"/></g>
+            <g class="hv-node hv-n2"><circle cx="370" cy="80"  r="12" fill="#6366f1" opacity="0.9"/><circle cx="370" cy="80"  r="20" fill="none" stroke="#6366f1" stroke-width="1" opacity="0.3"/></g>
+            <g class="hv-node hv-n3"><circle cx="60"  cy="230" r="10" fill="#44b6e9" opacity="0.85"/></g>
+            <g class="hv-node hv-n4"><circle cx="400" cy="230" r="11" fill="#45d0bd" opacity="0.85"/></g>
+            <g class="hv-node hv-n5"><circle cx="140" cy="340" r="9"  fill="#818cf8" opacity="0.8"/></g>
+            <g class="hv-node hv-n6"><circle cx="320" cy="340" r="10" fill="#45d0bd" opacity="0.8"/></g>
+            <g class="hv-node hv-n7"><circle cx="230" cy="50"  r="8"  fill="#f472b6" opacity="0.75"/></g>
+            <circle cx="160" cy="130" r="4" fill="rgba(255,255,255,0.4)" class="hv-dot"/>
+            <circle cx="300" cy="130" r="4" fill="rgba(255,255,255,0.4)" class="hv-dot"/>
+            <circle cx="150" cy="270" r="3" fill="rgba(255,255,255,0.3)" class="hv-dot"/>
+            <circle cx="310" cy="265" r="3" fill="rgba(255,255,255,0.3)" class="hv-dot"/>
+            <circle cx="230" cy="200" r="30" fill="rgba(69,208,189,0.12)" stroke="#45d0bd" stroke-width="1.5"/>
+            <circle cx="230" cy="200" r="30" fill="none" stroke="#45d0bd" stroke-width="2" class="hv-pulse-ring"/>
+            <circle cx="230" cy="200" r="14" fill="#45d0bd"/>
+            <text x="230" y="205" text-anchor="middle" font-family="Sora,Arial" font-size="9" font-weight="700" fill="#000">AI</text>
+            <circle r="3.5" fill="#ffffff" opacity="0.95" class="hv-pkt hv-pkt1"/>
+            <circle r="3"   fill="#45d0bd" opacity="0.9"  class="hv-pkt hv-pkt2"/>
+            <circle r="3"   fill="#818cf8" opacity="0.9"  class="hv-pkt hv-pkt3"/>
+            <circle r="2.5" fill="#f472b6" opacity="0.85" class="hv-pkt hv-pkt4"/>
+          </svg>
+          <div class="hv-card hv-card-tl">
+            <span class="hvc-dot-green"></span>
+            <div>
+              <span class="hvc-label">{{ $t('home.systemReady') }}</span>
+              <span class="hvc-sub">Engine online</span>
+            </div>
           </div>
-          <div class="hbb-divider"></div>
-          <div class="hbb-stat">
-            <span class="hbb-num">&#8734;</span>
-            <span class="hbb-label">{{ $t('home.metricHighAvailDesc') }}</span>
-          </div>
-          <div class="hbb-divider"></div>
-          <div class="hbb-stat">
-            <span class="hbb-num">5</span>
-            <span class="hbb-label">Steps</span>
+          <div class="hv-card hv-card-br">
+            <span class="hvc-num">&#8734;</span>
+            <span class="hvc-label">{{ $t('home.metricHighAvailDesc') }}</span>
           </div>
         </div>
+
       </div>
     </section>
 
@@ -515,5 +584,59 @@ body { margin: 0; padding: 0; background: #111111; color: #ffffff; }
 /* Hero body fix */
 .hero-body { align-items: center !important; }
 .hero-text { max-width: 580px !important; flex: 1; }
+
+
+/* ── Hero Visual (SVG Network) ── */
+.hero-visual { flex: 0 0 460px; position: relative; height: 400px; }
+.hv-glow { position: absolute; width: 300px; height: 300px; background: radial-gradient(circle, rgba(69,208,189,0.15) 0%, transparent 70%); top: 50%; left: 50%; transform: translate(-50%,-50%); border-radius: 50%; pointer-events: none; }
+.hv-svg { width: 100%; height: 100%; }
+/* Node pulse animations */
+.hv-node { animation: hv-node-pulse 3s ease-in-out infinite; }
+.hv-n1 { animation-delay: 0s; }
+.hv-n2 { animation-delay: 0.5s; }
+.hv-n3 { animation-delay: 1s; }
+.hv-n4 { animation-delay: 1.5s; }
+.hv-n5 { animation-delay: 2s; }
+.hv-n6 { animation-delay: 0.8s; }
+.hv-n7 { animation-delay: 1.3s; }
+.hv-dot { animation: hv-node-pulse 4s ease-in-out infinite; }
+@keyframes hv-node-pulse { 0%,100%{opacity:0.85} 50%{opacity:1;filter:brightness(1.3)} }
+/* Center ring pulse */
+.hv-pulse-ring { animation: hv-ring 2.5s ease-out infinite; transform-origin: 230px 200px; }
+@keyframes hv-ring { 0%{opacity:0.7;r:30} 100%{opacity:0;r:60} }
+/* Packet movement along lines */
+.hv-pkt1 { animation: hv-p1 3s linear infinite; }
+.hv-pkt2 { animation: hv-p2 4s linear infinite 0.8s; }
+.hv-pkt3 { animation: hv-p3 3.5s linear infinite 1.5s; }
+.hv-pkt4 { animation: hv-p4 5s linear infinite 0.3s; }
+@keyframes hv-p1 { 0%{cx:230;cy:200} 100%{cx:90;cy:80} }
+@keyframes hv-p2 { 0%{cx:230;cy:200} 100%{cx:370;cy:80} }
+@keyframes hv-p3 { 0%{cx:230;cy:200} 100%{cx:400;cy:230} }
+@keyframes hv-p4 { 0%{cx:230;cy:200} 100%{cx:140;cy:340} }
+/* Floating cards on the SVG */
+.hv-card { position: absolute; display: flex; align-items: center; gap: 10px; background: rgba(255,255,255,0.1); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.18); border-radius: 14px; padding: 12px 16px; white-space: nowrap; }
+.hv-card-tl { top: 10px; left: 0px; }
+.hv-card-br { bottom: 20px; right: 0px; }
+.hvc-dot-green { width: 9px; height: 9px; background: #22C55E; border-radius: 50%; flex-shrink: 0; box-shadow: 0 0 0 3px rgba(34,197,94,0.25); animation: hv-ring 2s ease-out infinite; }
+.hvc-label { display: block; font-family: 'Sora', Arial, sans-serif; font-size: 13px; font-weight: 600; color: #ffffff; }
+.hvc-sub { display: block; font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 2px; }
+.hvc-num { font-family: 'Sora', Arial, sans-serif; font-size: 24px; font-weight: 700; color: #45d0bd; }
+/* Hero text extras */
+.hero-eyebrow { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: #45d0bd; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; background: rgba(69,208,189,0.1); padding: 6px 14px; border-radius: 100px; border: 1px solid rgba(69,208,189,0.3); }
+.hero-eyebrow-dot { width: 6px; height: 6px; background: #22C55E; border-radius: 50%; animation: hv-blink 2s ease-in-out infinite; }
+@keyframes hv-blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+.hero-accent { color: #45d0bd; font-weight: 700; }
+.hero-em { font-style: normal; background: rgba(255,255,255,0.1); padding: 1px 6px; border-radius: 4px; }
+.hero-slogan { font-size: 14px; color: rgba(255,255,255,0.45); margin: 0 0 28px; font-style: italic; }
+.hero-actions { display: flex; gap: 16px; align-items: center; margin-bottom: 36px; flex-wrap: wrap; }
+.btn-ghost-hero { background: transparent; border: none; color: rgba(255,255,255,0.55); font-family: 'Manrope', Arial, sans-serif; font-size: 15px; font-weight: 500; cursor: pointer; transition: color 0.2s; padding: 0; }
+.btn-ghost-hero:hover { color: #ffffff; }
+.hero-stats-row { display: flex; align-items: center; gap: 20px; }
+.hsr-item { display: flex; flex-direction: column; gap: 3px; }
+.hsr-num { font-family: 'Sora', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #45d0bd; }
+.hsr-lbl { font-size: 11px; color: rgba(255,255,255,0.35); }
+.hsr-div { width: 1px; height: 28px; background: rgba(255,255,255,0.1); }
+/* Hero body row layout */
+.hero-body { flex-direction: row !important; justify-content: space-between !important; align-items: center !important; }
 
 </style>
