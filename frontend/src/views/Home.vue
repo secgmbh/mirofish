@@ -379,7 +379,7 @@ body { margin: 0; padding: 0; background: #111111; color: #ffffff; }
 /* ── NAVBAR ── */
 .hdr { position: fixed; top: 0; left: 0; right: 0; z-index: 500; padding: 0 48px; transition: background 0.3s, border 0.3s; }
 .hdr.sticky { background: rgba(17,17,17,0.95); backdrop-filter: blur(20px); border-bottom: 1px solid rgba(255,255,255,0.08); }
-.hdr-inner { max-width: 1320px; margin: 0 auto; height: 80px; display: flex; align-items: center; justify-content: space-between; }
+.hdr-inner { max-width: 1320px; margin: 0 auto; height: 90px; display: flex; align-items: center; justify-content: space-between; }
 .hdr-logo { font-family: 'Sora', Arial, sans-serif; font-weight: 800; font-size: 1.25rem; letter-spacing: 2px; color: #ffffff; }
 .hdr-nav { display: flex; gap: 40px; }
 .hdr-link { font-size: 15px; font-weight: 500; color: rgba(255,255,255,0.8); text-decoration: none; transition: color 0.2s; }
@@ -642,5 +642,5 @@ body { margin: 0; padding: 0; background: #111111; color: #ffffff; }
 .hero-body { flex-direction: row !important; justify-content: space-between !important; align-items: center !important; }
 
 .hdr-logo { display: flex; align-items: center; }
-.hdr-logo-img { height: 38px; width: auto; object-fit: contain; }
+.hdr-logo-img { height: 56px; width: auto; object-fit: contain; }
 </style>
