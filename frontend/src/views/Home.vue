@@ -1,231 +1,165 @@
 <template>
-  <div class="home-container">
-    <!-- 顶部导航栏 -->
+  <div class="home-wrap">
     <nav class="navbar">
-      <div class="nav-brand">BOTOPOLIS</div>
-      <div class="nav-links">
-        <LanguageSwitcher />
-        <a href="https://github.com/secgmbh/mirofish" target="_blank" class="github-link">
-          {{ $t('nav.visitGithub') }} <span class="arrow">↗</span>
-        </a>
+      <div class="nav-inner">
+        <div class="nav-logo">BOTOPOLIS</div>
+        <div class="nav-center-links">
+          <span class="nav-link">{{ $t('home.step01Title') }}</span>
+          <span class="nav-link">{{ $t('home.step02Title') }}</span>
+          <span class="nav-link">{{ $t('home.step03Title') }}</span>
+          <span class="nav-link">{{ $t('home.step04Title') }}</span>
+        </div>
+        <div class="nav-right">
+          <LanguageSwitcher />
+          <a href="https://github.com/secgmbh/mirofish" target="_blank" class="nav-cta">GitHub &#8599;</a>
+        </div>
       </div>
     </nav>
 
-    <div class="main-content">
-      <!-- 上半部分：Hero 区域 -->
-      <section class="hero-section">
-        <div class="hero-left">
-          <div class="tag-row">
-            <span class="blue-tag">{{ $t('home.tagline') }}</span>
-            <span class="version-text">{{ $t('home.version') }}</span>
-          </div>
-          
-          <h1 class="main-title">
-            {{ $t('home.heroTitle1') }}<br>
-            <span class="gradient-text">{{ $t('home.heroTitle2') }}</span>
-          </h1>
-          
-          <div class="hero-desc">
-            <p>
-              <i18n-t keypath="home.heroDesc" tag="span">
-                <template #brand><span class="highlight-bold">{{ $t('home.heroDescBrand') }}</span></template>
-                <template #agentScale><span class="highlight-blue">{{ $t('home.heroDescAgentScale') }}</span></template>
-                <template #optimalSolution><span class="highlight-code">{{ $t('home.heroDescOptimalSolution') }}</span></template>
-              </i18n-t>
-            </p>
-            <p class="slogan-text">
-              {{ $t('home.slogan') }}<span class="blinking-cursor">_</span>
-            </p>
-          </div>
-           
-          <div class="decoration-square"></div>
+    <section class="hero">
+      <div class="hero-bg-grid"></div>
+      <div class="hero-glow hero-glow-1"></div>
+      <div class="hero-glow hero-glow-2"></div>
+      <div class="hero-inner">
+        <div class="hero-badge">
+          <span class="badge-dot"></span>
+          {{ $t('home.tagline') }} {{ $t('home.version') }}
         </div>
-        
-        <div class="hero-right">
-          <!-- Logo 区域 -->
-          <div class="logo-container">
-            <div class="brand-visual">
-              <div class="brand-icon-grid">
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-                <span></span><span></span><span></span>
-              </div>
-              <div class="brand-label-large">BOTOPOLIS</div>
-              <div class="brand-sublabel">Swarm Intelligence Engine</div>
-            </div>
-          </div>
-          
-          <button class="scroll-down-btn" @click="scrollToBottom">
-            ↓
-          </button>
+        <h1 class="hero-title">
+          {{ $t('home.heroTitle1') }}<br>
+          <span class="hero-title-gradient">{{ $t('home.heroTitle2') }}</span>
+        </h1>
+        <p class="hero-sub">
+          <i18n-t keypath="home.heroDesc" tag="span">
+            <template #brand><strong>{{ $t('home.heroDescBrand') }}</strong></template>
+            <template #agentScale><span class="text-accent">{{ $t('home.heroDescAgentScale') }}</span></template>
+            <template #optimalSolution><code>{{ $t('home.heroDescOptimalSolution') }}</code></template>
+          </i18n-t>
+        </p>
+        <div class="hero-actions">
+          <button class="btn-primary" @click="scrollToStart">{{ $t('home.startEngine') }} &#8594;</button>
+          <button class="btn-ghost" @click="scrollToSteps">{{ $t('home.workflowSequence') }} &#8595;</button>
         </div>
-      </section>
-
-      <!-- 下半部分：双栏布局 -->
-      <section class="dashboard-section">
-        <!-- 左栏：状态与步骤 -->
-        <div class="left-panel">
-          <div class="panel-header">
-            <span class="status-dot">■</span> {{ $t('home.systemStatus') }}
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-num">5</span>
+            <span class="stat-label">Steps</span>
           </div>
-          
-          <h2 class="section-title">{{ $t('home.systemReady') }}</h2>
-          <p class="section-desc">
-            {{ $t('home.systemReadyDesc') }}
-          </p>
-          
-          <!-- 数据指标卡片 -->
-          <div class="metrics-row">
-            <div class="metric-card">
-              <div class="metric-value">{{ $t('home.metricLowCost') }}</div>
-              <div class="metric-label">{{ $t('home.metricLowCostDesc') }}</div>
-            </div>
-            <div class="metric-card">
-              <div class="metric-value">{{ $t('home.metricHighAvail') }}</div>
-              <div class="metric-label">{{ $t('home.metricHighAvailDesc') }}</div>
-            </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">&#8734;</span>
+            <span class="stat-label">{{ $t('home.metricHighAvailDesc') }}</span>
           </div>
-
-          <!-- 项目模拟步骤介绍 (新增区域) -->
-          <div class="steps-container">
-            <div class="steps-header">
-               <span class="diamond-icon">◇</span> {{ $t('home.workflowSequence') }}
-            </div>
-            <div class="workflow-list">
-              <div class="workflow-item">
-                <span class="step-num">01</span>
-                <div class="step-info">
-                  <div class="step-title">{{ $t('home.step01Title') }}</div>
-                  <div class="step-desc">{{ $t('home.step01Desc') }}</div>
-                </div>
-              </div>
-              <div class="workflow-item">
-                <span class="step-num">02</span>
-                <div class="step-info">
-                  <div class="step-title">{{ $t('home.step02Title') }}</div>
-                  <div class="step-desc">{{ $t('home.step02Desc') }}</div>
-                </div>
-              </div>
-              <div class="workflow-item">
-                <span class="step-num">03</span>
-                <div class="step-info">
-                  <div class="step-title">{{ $t('home.step03Title') }}</div>
-                  <div class="step-desc">{{ $t('home.step03Desc') }}</div>
-                </div>
-              </div>
-              <div class="workflow-item">
-                <span class="step-num">04</span>
-                <div class="step-info">
-                  <div class="step-title">{{ $t('home.step04Title') }}</div>
-                  <div class="step-desc">{{ $t('home.step04Desc') }}</div>
-                </div>
-              </div>
-              <div class="workflow-item">
-                <span class="step-num">05</span>
-                <div class="step-info">
-                  <div class="step-title">{{ $t('home.step05Title') }}</div>
-                  <div class="step-desc">{{ $t('home.step05Desc') }}</div>
-                </div>
-              </div>
-            </div>
+          <div class="stat-divider"></div>
+          <div class="stat-item">
+            <span class="stat-num">{{ $t('home.metricLowCostDesc') }}</span>
+            <span class="stat-label">{{ $t('home.metricLowCost') }}</span>
           </div>
         </div>
+      </div>
+    </section>
 
-        <!-- 右栏：交互控制台 -->
-        <div class="right-panel">
-          <div class="console-box">
-            <!-- 上传区域 -->
-            <div class="console-section">
-              <div class="console-header">
-                <span class="console-label">{{ $t('home.realitySeed') }}</span>
-                <span class="console-meta">{{ $t('home.supportedFormats') }}</span>
+    <section class="section-steps" ref="stepsRef">
+      <div class="section-inner">
+        <div class="section-label">{{ $t('home.workflowSequence') }}</div>
+        <h2 class="section-title">{{ $t('home.systemReady') }}</h2>
+        <p class="section-sub">{{ $t('home.systemReadyDesc') }}</p>
+        <div class="steps-grid">
+          <div class="step-card" v-for="(step, i) in steps" :key="i">
+            <div class="step-num-badge">{{ String(i+1).padStart(2,'0') }}</div>
+            <h3 class="step-card-title">{{ step.title }}</h3>
+            <p class="step-card-desc">{{ step.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-features">
+      <div class="section-inner">
+        <div class="section-label">Features</div>
+        <h2 class="section-title">{{ $t('home.systemStatus') }}</h2>
+        <div class="features-grid">
+          <div class="feature-card" v-for="(feat, i) in steps.slice(0,4)" :key="i">
+            <div class="feature-icon">{{ ['&#11041;','&#10696;','&#9726;','&#9711;'][i] }}</div>
+            <h4>{{ feat.title }}</h4>
+            <p>{{ feat.desc }}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section-start" ref="startRef">
+      <div class="section-inner">
+        <div class="section-label">&gt;_ Engine</div>
+        <h2 class="section-title">{{ $t('home.startEngine') }}</h2>
+        <p class="section-sub">{{ $t('home.systemReadyDesc') }}</p>
+        <div class="engine-grid">
+          <div class="engine-panel">
+            <div class="panel-head">
+              <span class="panel-num">01</span>
+              <span>{{ $t('home.realitySeed') }}</span>
+              <span class="panel-meta">{{ $t('home.supportedFormats') }}</span>
+            </div>
+            <div
+              class="drop-zone"
+              :class="{ 'drag-active': isDragOver, 'has-files': files.length > 0 }"
+              @dragover.prevent="handleDragOver"
+              @dragleave.prevent="handleDragLeave"
+              @drop.prevent="handleDrop"
+              @click="triggerFileInput"
+            >
+              <input ref="fileInput" type="file" multiple accept=".pdf,.md,.txt"
+                @change="handleFileSelect" style="display:none" :disabled="loading" />
+              <div v-if="files.length === 0" class="drop-placeholder">
+                <div class="drop-icon">&#8593;</div>
+                <div>{{ $t('home.dragToUpload') }}</div>
+                <div class="drop-hint">{{ $t('home.orBrowse') }}</div>
               </div>
-              
-              <div 
-                class="upload-zone"
-                :class="{ 'drag-over': isDragOver, 'has-files': files.length > 0 }"
-                @dragover.prevent="handleDragOver"
-                @dragleave.prevent="handleDragLeave"
-                @drop.prevent="handleDrop"
-                @click="triggerFileInput"
-              >
-                <input
-                  ref="fileInput"
-                  type="file"
-                  multiple
-                  accept=".pdf,.md,.txt"
-                  @change="handleFileSelect"
-                  style="display: none"
-                  :disabled="loading"
-                />
-                
-                <div v-if="files.length === 0" class="upload-placeholder">
-                  <div class="upload-icon">↑</div>
-                  <div class="upload-title">{{ $t('home.dragToUpload') }}</div>
-                  <div class="upload-hint">{{ $t('home.orBrowse') }}</div>
-                </div>
-                
-                <div v-else class="file-list">
-                  <div v-for="(file, index) in files" :key="index" class="file-item">
-                    <span class="file-icon">📄</span>
-                    <span class="file-name">{{ file.name }}</span>
-                    <button @click.stop="removeFile(index)" class="remove-btn">×</button>
-                  </div>
+              <div v-else class="file-list">
+                <div v-for="(f, i) in files" :key="i" class="file-row">
+                  <span>&#128196; {{ f.name }}</span>
+                  <button @click.stop="removeFile(i)" class="rm-btn">&#215;</button>
                 </div>
               </div>
             </div>
-
-            <!-- 分割线 -->
-            <div class="console-divider">
+          </div>
+          <div class="engine-panel">
+            <div class="panel-head">
+              <span class="panel-num">02</span>
               <span>{{ $t('home.inputParams') }}</span>
             </div>
-
-            <!-- 输入区域 -->
-            <div class="console-section">
-              <div class="console-header">
-                <span class="console-label">{{ $t('home.simulationPrompt') }}</span>
-              </div>
-              <div class="input-wrapper">
-                <textarea
-                  v-model="formData.simulationRequirement"
-                  class="code-input"
-                  :placeholder="$t('home.promptPlaceholder')"
-                  rows="6"
-                  :disabled="loading"
-                ></textarea>
-                <div class="model-badge">{{ $t('home.engineBadge') }}</div>
-              </div>
+            <div class="prompt-wrap">
+              <textarea v-model="formData.simulationRequirement" class="prompt-input"
+                :placeholder="$t('home.promptPlaceholder')" rows="9" :disabled="loading"></textarea>
+              <div class="engine-badge">{{ $t('home.engineBadge') }}</div>
             </div>
-
-            <!-- 启动按钮 -->
-            <div class="console-section btn-section">
-              <button 
-                class="start-engine-btn"
-                @click="startSimulation"
-                :disabled="!canSubmit || loading"
-              >
-                <span v-if="!loading">{{ $t('home.startEngine') }}</span>
-                <span v-else>{{ $t('home.initializing') }}</span>
-                <span class="btn-arrow">→</span>
-              </button>
-            </div>
+            <button class="launch-btn" @click="startSimulation" :disabled="!canSubmit || loading">
+              <span v-if="!loading">{{ $t('home.startEngine') }}</span>
+              <span v-else>{{ $t('home.initializing') }}</span>
+              <span>&#8594;</span>
+            </button>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
-      <!-- 历史项目数据库 -->
-      <HistoryDatabase />
-    </div>
+    <section class="section-history">
+      <div class="section-inner">
+        <HistoryDatabase />
+      </div>
+    </section>
   </div>
 </template>
 
 <script setup>
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
 import { useRouter } from 'vue-router'
 import HistoryDatabase from '../components/HistoryDatabase.vue'
 import LanguageSwitcher from '../components/LanguageSwitcher.vue'
 
 const router = useRouter()
+const { t } = useI18n()
 
 // 表单数据
 const formData = ref({
@@ -242,6 +176,8 @@ const isDragOver = ref(false)
 
 // 文件输入引用
 const fileInput = ref(null)
+const stepsRef = ref(null)
+const startRef = ref(null)
 
 // 计算属性:是否可以提交
 const canSubmit = computed(() => {
@@ -302,6 +238,17 @@ const scrollToBottom = () => {
   })
 }
 
+const scrollToSteps = () => stepsRef.value?.scrollIntoView({ behavior: 'smooth' })
+const scrollToStart = () => startRef.value?.scrollIntoView({ behavior: 'smooth' })
+
+const steps = computed(() => [
+  { title: t('home.step01Title'), desc: t('home.step01Desc') },
+  { title: t('home.step02Title'), desc: t('home.step02Desc') },
+  { title: t('home.step03Title'), desc: t('home.step03Desc') },
+  { title: t('home.step04Title'), desc: t('home.step04Desc') },
+  { title: t('home.step05Title'), desc: t('home.step05Desc') },
+])
+
 // 开始模拟 - 立即跳转，API调用在Process页面进行
 const startSimulation = () => {
   if (!canSubmit.value || loading.value) return
@@ -318,647 +265,106 @@ const startSimulation = () => {
   })
 }
 </script>
-
 <style scoped>
-/* 全局变量与重置 */
-:root {
-  --black: #0F1B3D;
-  --white: #FFFFFF;
-  --blue: #2563EB;
-  --blue-dark: #1D4ED8;
-  --blue-light: #EFF6FF;
-  --navy: #0F1B3D;
-  --gray-light: #F8FAFF;
-  --gray-text: #666666;
-  --border: #DBEAFE;
-  /* 
-    使用 Space Grotesk 作为主要标题字体，JetBrains Mono 作为代码/标签字体
-    确保已在 index.html 引入这些 Google Fonts 
-  */
-  --font-mono: 'JetBrains Mono', monospace;
-  --font-sans: 'Space Grotesk', 'Noto Sans SC', system-ui, sans-serif;
-  --font-cn: 'Noto Sans SC', system-ui, sans-serif;
-}
+.home-wrap { min-height: 100vh; background: #070B14; color: #F8FAFC; font-family: 'Space Grotesk', system-ui, sans-serif; }
+
+.navbar { position: sticky; top: 0; z-index: 100; background: rgba(7,11,20,0.85); backdrop-filter: blur(16px); border-bottom: 1px solid rgba(37,99,235,0.2); }
+.nav-inner { max-width: 1280px; margin: 0 auto; padding: 0 40px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+.nav-logo { font-family: 'JetBrains Mono', monospace; font-weight: 800; font-size: 1.1rem; letter-spacing: 3px; background: linear-gradient(90deg, #60A5FA, #2563EB); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.nav-center-links { display: flex; gap: 32px; }
+.nav-link { font-size: 0.85rem; color: #94A3B8; cursor: pointer; transition: color 0.2s; }
+.nav-link:hover { color: #F8FAFC; }
+.nav-right { display: flex; align-items: center; gap: 16px; }
+.nav-cta { font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #60A5FA; text-decoration: none; border: 1px solid rgba(37,99,235,0.2); padding: 6px 16px; transition: all 0.2s; }
+.nav-cta:hover { background: rgba(37,99,235,0.15); border-color: #2563EB; }
+
+.hero { position: relative; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 120px 40px 80px; }
+.hero-bg-grid { position: absolute; inset: 0; background-image: linear-gradient(rgba(37,99,235,0.07) 1px, transparent 1px), linear-gradient(90deg, rgba(37,99,235,0.07) 1px, transparent 1px); background-size: 60px 60px; }
+.hero-glow { position: absolute; border-radius: 50%; filter: blur(120px); pointer-events: none; }
+.hero-glow-1 { width: 600px; height: 600px; background: rgba(37,99,235,0.18); top: -100px; right: -100px; }
+.hero-glow-2 { width: 400px; height: 400px; background: rgba(96,165,250,0.1); bottom: 0; left: -50px; }
+.hero-inner { position: relative; z-index: 1; max-width: 860px; text-align: center; }
+.hero-badge { display: inline-flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; color: #60A5FA; border: 1px solid rgba(96,165,250,0.3); padding: 6px 16px; border-radius: 100px; margin-bottom: 32px; background: rgba(37,99,235,0.08); letter-spacing: 1px; }
+.badge-dot { width: 6px; height: 6px; background: #22C55E; border-radius: 50%; animation: pulse-dot 2s ease-in-out infinite; }
+@keyframes pulse-dot { 0%,100% { opacity: 1; transform: scale(1); } 50% { opacity: 0.6; transform: scale(0.8); } }
+.hero-title { font-size: 5rem; font-weight: 700; line-height: 1.1; letter-spacing: -2px; margin: 0 0 28px; color: #F8FAFC; }
+.hero-title-gradient { background: linear-gradient(135deg, #60A5FA 0%, #2563EB 50%, #818CF8 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+.hero-sub { font-size: 1.05rem; color: #94A3B8; line-height: 1.8; max-width: 680px; margin: 0 auto 40px; }
+.hero-sub strong { color: #F8FAFC; }
+.text-accent { color: #60A5FA; font-weight: 600; }
+.hero-sub code { font-family: 'JetBrains Mono', monospace; background: rgba(37,99,235,0.15); padding: 2px 8px; border-radius: 4px; color: #60A5FA; font-size: 0.9em; }
+.hero-actions { display: flex; gap: 16px; justify-content: center; margin-bottom: 56px; }
+.btn-primary { background: linear-gradient(135deg, #1D4ED8, #2563EB); color: #fff; border: none; padding: 14px 36px; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 0.95rem; cursor: pointer; border-radius: 2px; transition: all 0.3s; letter-spacing: 1px; box-shadow: 0 0 24px rgba(37,99,235,0.35); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 0 40px rgba(37,99,235,0.55); }
+.btn-ghost { background: transparent; color: #94A3B8; border: 1px solid rgba(37,99,235,0.2); padding: 14px 36px; font-family: 'JetBrains Mono', monospace; font-size: 0.95rem; cursor: pointer; border-radius: 2px; transition: all 0.2s; }
+.btn-ghost:hover { color: #F8FAFC; border-color: #3B82F6; background: rgba(37,99,235,0.08); }
+.hero-stats { display: inline-flex; align-items: center; gap: 32px; background: rgba(255,255,255,0.03); border: 1px solid rgba(37,99,235,0.2); border-radius: 4px; padding: 16px 36px; }
+.stat-item { display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.stat-num { font-family: 'JetBrains Mono', monospace; font-size: 1.4rem; font-weight: 700; color: #60A5FA; }
+.stat-label { font-size: 0.72rem; color: #94A3B8; letter-spacing: 0.5px; }
+.stat-divider { width: 1px; height: 32px; background: rgba(37,99,235,0.2); }
+
+.section-steps, .section-features, .section-start, .section-history { padding: 100px 40px; }
+.section-steps { background: #0A0F1E; }
+.section-features { background: #070B14; border-top: 1px solid rgba(37,99,235,0.15); }
+.section-start { background: #0A0F1E; border-top: 1px solid rgba(37,99,235,0.15); }
+.section-history { background: #070B14; border-top: 1px solid rgba(37,99,235,0.15); }
+.section-inner { max-width: 1280px; margin: 0 auto; }
+.section-label { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: #3B82F6; letter-spacing: 3px; text-transform: uppercase; margin-bottom: 16px; }
+.section-title { font-size: 2.8rem; font-weight: 700; letter-spacing: -1px; margin: 0 0 16px; color: #F8FAFC; }
+.section-sub { font-size: 1rem; color: #94A3B8; max-width: 560px; line-height: 1.7; margin-bottom: 60px; }
+
+.steps-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1px; background: rgba(37,99,235,0.15); border: 1px solid rgba(37,99,235,0.15); }
+.step-card { background: #0A0F1E; padding: 36px 28px; transition: background 0.2s; }
+.step-card:hover { background: rgba(37,99,235,0.06); }
+.step-num-badge { font-family: 'JetBrains Mono', monospace; font-size: 2.5rem; font-weight: 800; color: rgba(37,99,235,0.25); margin-bottom: 20px; line-height: 1; }
+.step-card-title { font-size: 0.95rem; font-weight: 600; color: #F8FAFC; margin: 0 0 10px; }
+.step-card-desc { font-size: 0.8rem; color: #94A3B8; line-height: 1.6; }
+
+.features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.feature-card { background: #0D1526; border: 1px solid rgba(37,99,235,0.2); padding: 36px 28px; transition: all 0.3s; }
+.feature-card:hover { border-color: #2563EB; transform: translateY(-4px); box-shadow: 0 8px 32px rgba(37,99,235,0.15); }
+.feature-icon { font-size: 2rem; margin-bottom: 20px; color: #3B82F6; }
+.feature-card h4 { font-size: 1rem; font-weight: 600; margin: 0 0 12px; color: #F8FAFC; }
+.feature-card p { font-size: 0.82rem; color: #94A3B8; line-height: 1.6; }
+
+.engine-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+.engine-panel { background: #0D1526; border: 1px solid rgba(37,99,235,0.2); padding: 32px; display: flex; flex-direction: column; gap: 20px; }
+.panel-head { display: flex; align-items: center; gap: 12px; font-family: 'JetBrains Mono', monospace; font-size: 0.78rem; color: #94A3B8; border-bottom: 1px solid rgba(37,99,235,0.15); padding-bottom: 16px; }
+.panel-num { font-size: 1.4rem; font-weight: 800; color: rgba(37,99,235,0.4); }
+.panel-meta { margin-left: auto; }
+.drop-zone { flex: 1; min-height: 220px; border: 1px dashed rgba(37,99,235,0.3); background: rgba(37,99,235,0.03); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.2s; overflow-y: auto; }
+.drop-zone.drag-active, .drop-zone:hover { border-color: #2563EB; background: rgba(37,99,235,0.08); }
+.drop-zone.has-files { align-items: flex-start; }
+.drop-placeholder { text-align: center; color: #94A3B8; }
+.drop-icon { font-size: 2rem; margin-bottom: 12px; color: rgba(37,99,235,0.4); }
+.drop-hint { font-family: 'JetBrains Mono', monospace; font-size: 0.72rem; color: rgba(148,163,184,0.6); margin-top: 6px; }
+.file-list { width: 100%; padding: 16px; display: flex; flex-direction: column; gap: 8px; }
+.file-row { display: flex; align-items: center; justify-content: space-between; background: rgba(37,99,235,0.08); border: 1px solid rgba(37,99,235,0.2); padding: 8px 14px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; color: #F8FAFC; }
+.rm-btn { background: none; border: none; color: #94A3B8; cursor: pointer; font-size: 1.1rem; }
+.rm-btn:hover { color: #F87171; }
+.prompt-wrap { position: relative; flex: 1; }
+.prompt-input { width: 100%; min-height: 200px; background: rgba(37,99,235,0.04); border: 1px solid rgba(37,99,235,0.2); color: #F8FAFC; font-family: 'JetBrains Mono', monospace; font-size: 0.88rem; line-height: 1.7; padding: 20px; resize: vertical; outline: none; transition: border-color 0.2s; }
+.prompt-input:focus { border-color: #2563EB; }
+.prompt-input::placeholder { color: rgba(148,163,184,0.5); }
+.engine-badge { position: absolute; bottom: 12px; right: 14px; font-family: 'JetBrains Mono', monospace; font-size: 0.68rem; color: rgba(96,165,250,0.4); }
+.launch-btn { width: 100%; background: linear-gradient(135deg, #1D4ED8, #2563EB); color: #fff; border: none; padding: 18px 24px; font-family: 'JetBrains Mono', monospace; font-weight: 700; font-size: 1rem; letter-spacing: 2px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; transition: all 0.3s; box-shadow: 0 0 20px rgba(37,99,235,0.3); }
+.launch-btn:hover:not(:disabled) { box-shadow: 0 0 40px rgba(37,99,235,0.5); transform: translateY(-1px); }
+.launch-btn:disabled { background: #1E293B; color: #475569; cursor: not-allowed; box-shadow: none; transform: none; }
 
-.home-container {
-  min-height: 100vh;
-  background: var(--white);
-  font-family: var(--font-sans);
-  color: var(--black);
-}
-
-/* 顶部导航 */
-.navbar {
-  height: 60px;
-  background: var(--black);
-  color: var(--white);
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 40px;
-}
-
-.nav-brand {
-  font-family: var(--font-mono);
-  font-weight: 800;
-  letter-spacing: 1px;
-  font-size: 1.2rem;
-}
-
-.nav-links {
-  display: flex;
-  align-items: center;
-  gap: 16px;
-}
-
-.github-link {
-  color: var(--white);
-  text-decoration: none;
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  transition: opacity 0.2s;
-}
-
-.github-link:hover {
-  opacity: 0.8;
-}
-
-.arrow {
-  font-family: sans-serif;
-}
-
-/* 主要内容区 */
-.main-content {
-  max-width: 1400px;
-  margin: 0 auto;
-  padding: 60px 40px;
-}
-
-/* Hero 区域 */
-.hero-section {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 80px;
-  position: relative;
-}
-
-.hero-left {
-  flex: 1;
-  padding-right: 60px;
-}
-
-.tag-row {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-  margin-bottom: 25px;
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-}
-
-.blue-tag {
-  background: var(--blue);
-  color: var(--white);
-  padding: 4px 10px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  font-size: 0.75rem;
-}
-
-.version-text {
-  color: #999;
-  font-weight: 500;
-  letter-spacing: 0.5px;
-}
-
-.main-title {
-  font-size: 4.5rem;
-  line-height: 1.2;
-  font-weight: 500;
-  margin: 0 0 40px 0;
-  letter-spacing: -2px;
-  color: var(--black);
-}
-
-.gradient-text {
-  background: linear-gradient(90deg, #1D4ED8 0%, #60A5FA 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  display: inline-block;
-}
-
-.hero-desc {
-  font-size: 1.05rem;
-  line-height: 1.8;
-  color: var(--gray-text);
-  max-width: 640px;
-  margin-bottom: 50px;
-  font-weight: 400;
-  text-align: justify;
-}
-
-.hero-desc p {
-  margin-bottom: 1.5rem;
-}
-
-.highlight-bold {
-  color: var(--black);
-  font-weight: 700;
-}
-
-.highlight-blue {
-  color: var(--blue);
-  font-weight: 700;
-  font-family: var(--font-mono);
-}
-
-.highlight-code {
-  background: rgba(0, 0, 0, 0.05);
-  padding: 2px 6px;
-  border-radius: 2px;
-  font-family: var(--font-mono);
-  font-size: 0.9em;
-  color: var(--black);
-  font-weight: 600;
-}
-
-.slogan-text {
-  font-size: 1.2rem;
-  font-weight: 520;
-  color: var(--black);
-  letter-spacing: 1px;
-  border-left: 3px solid var(--blue);
-  padding-left: 15px;
-  margin-top: 20px;
-}
-
-.blinking-cursor {
-  color: var(--blue);
-  animation: blink 1s step-end infinite;
-  font-weight: 700;
-}
-
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-.decoration-square {
-  width: 16px;
-  height: 16px;
-  background: var(--blue);
-}
-
-.hero-right {
-  flex: 0.8;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: flex-end;
-}
-
-.logo-container {
-  width: 100%;
-  display: flex;
-  justify-content: flex-end;
-  padding-right: 40px;
-}
-
-.hero-logo {
-  max-width: 500px; /* 调整logo大小 */
-  width: 100%;
-}
-
-.scroll-down-btn {
-  width: 40px;
-  height: 40px;
-  border: 1px solid var(--border);
-  background: transparent;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  color: var(--blue);
-  font-size: 1.2rem;
-  transition: all 0.2s;
-}
-
-.scroll-down-btn:hover {
-  border-color: var(--blue);
-}
-
-/* Dashboard 双栏布局 */
-.dashboard-section {
-  display: flex;
-  gap: 60px;
-  border-top: 1px solid var(--border);
-  padding-top: 60px;
-  align-items: flex-start;
-}
-
-.dashboard-section .left-panel,
-.dashboard-section .right-panel {
-  display: flex;
-  flex-direction: column;
-}
-
-/* 左侧面板 */
-.left-panel {
-  flex: 0.8;
-}
-
-.panel-header {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: #999;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  margin-bottom: 20px;
-}
-
-.status-dot {
-  color: var(--blue);
-  font-size: 0.8rem;
-}
-
-.section-title {
-  font-size: 2rem;
-  font-weight: 520;
-  margin: 0 0 15px 0;
-}
-
-.section-desc {
-  color: var(--gray-text);
-  margin-bottom: 25px;
-  line-height: 1.6;
-}
-
-.metrics-row {
-  display: flex;
-  gap: 20px;
-  margin-bottom: 15px;
-}
-
-.metric-card {
-  border: 1px solid var(--border);
-  padding: 20px 30px;
-  min-width: 150px;
-}
-
-.metric-value {
-  font-family: var(--font-mono);
-  font-size: 1.8rem;
-  font-weight: 520;
-  margin-bottom: 5px;
-}
-
-.metric-label {
-  font-size: 0.85rem;
-  color: #999;
-}
-
-/* 项目模拟步骤介绍 */
-.steps-container {
-  border: 1px solid var(--border);
-  padding: 30px;
-  position: relative;
-}
-
-.steps-header {
-  font-family: var(--font-mono);
-  font-size: 0.8rem;
-  color: #999;
-  margin-bottom: 25px;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.diamond-icon {
-  font-size: 1.2rem;
-  line-height: 1;
-}
-
-.workflow-list {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.workflow-item {
-  display: flex;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.step-num {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  color: var(--black);
-  opacity: 0.3;
-}
-
-.step-info {
-  flex: 1;
-}
-
-.step-title {
-  font-weight: 520;
-  font-size: 1rem;
-  margin-bottom: 4px;
-}
-
-.step-desc {
-  font-size: 0.85rem;
-  color: var(--gray-text);
-}
-
-/* 右侧交互控制台 */
-.right-panel {
-  flex: 1.2;
-}
-
-.console-box {
-  border: 1px solid #BFDBFE;
-  padding: 8px; /* 内边距形成双重边框感 */
-}
-
-.console-section {
-  padding: 20px;
-}
-
-.console-section.btn-section {
-  padding-top: 0;
-}
-
-.console-header {
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 15px;
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: #666;
-}
-
-.upload-zone {
-  border: 1px dashed #93C5FD;
-  height: 200px;
-  overflow-y: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s;
-  background: #FAFAFA;
-}
-
-.upload-zone.has-files {
-  align-items: flex-start;
-}
-
-.upload-zone:hover {
-  background: #F0F0F0;
-  border-color: #999;
-}
-
-.upload-placeholder {
-  text-align: center;
-}
-
-.upload-icon {
-  width: 40px;
-  height: 40px;
-  border: 1px solid #DDD;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 0 auto 15px;
-  color: #999;
-}
-
-.upload-title {
-  font-weight: 500;
-  font-size: 0.9rem;
-  margin-bottom: 5px;
-}
-
-.upload-hint {
-  font-family: var(--font-mono);
-  font-size: 0.75rem;
-  color: #999;
-}
-
-.file-list {
-  width: 100%;
-  padding: 15px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.file-item {
-  display: flex;
-  align-items: center;
-  background: var(--white);
-  padding: 8px 12px;
-  border: 1px solid #EEE;
-  font-family: var(--font-mono);
-  font-size: 0.85rem;
-}
-
-.file-name {
-  flex: 1;
-  margin: 0 10px;
-}
-
-.remove-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-  color: #999;
-}
-
-.console-divider {
-  display: flex;
-  align-items: center;
-  margin: 10px 0;
-}
-
-.console-divider::before,
-.console-divider::after {
-  content: '';
-  flex: 1;
-  height: 1px;
-  background: #EEE;
-}
-
-.console-divider span {
-  padding: 0 15px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: #BBB;
-  letter-spacing: 1px;
-}
-
-.input-wrapper {
-  position: relative;
-  border: 1px solid #DDD;
-  background: #FAFAFA;
-}
-
-.code-input {
-  width: 100%;
-  border: none;
-  background: transparent;
-  padding: 20px;
-  font-family: var(--font-mono);
-  font-size: 0.9rem;
-  line-height: 1.6;
-  resize: vertical;
-  outline: none;
-  min-height: 150px;
-}
-
-.model-badge {
-  position: absolute;
-  bottom: 10px;
-  right: 15px;
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: #AAA;
-}
-
-.start-engine-btn {
-  width: 100%;
-  background: var(--black);
-  color: var(--white);
-  border: none;
-  padding: 20px;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 1.1rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  letter-spacing: 1px;
-  position: relative;
-  overflow: hidden;
-}
-
-/* 可点击状态（非禁用） */
-.start-engine-btn:not(:disabled) {
-  background: var(--black);
-  border: 1px solid var(--black);
-  animation: pulse-border 2s infinite;
-}
-
-.start-engine-btn:hover:not(:disabled) {
-  background: var(--blue);
-  border-color: var(--blue);
-  transform: translateY(-2px);
-}
-
-.start-engine-btn:active:not(:disabled) {
-  transform: translateY(0);
-}
-
-.start-engine-btn:disabled {
-  background: #E5E5E5;
-  color: #999;
-  cursor: not-allowed;
-  transform: none;
-  border: 1px solid #E5E5E5;
-}
-
-/* 引导动画：微妙的边框脉冲 */
-@keyframes pulse-border {
-  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
-  70% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
-}
-
-/* 响应式适配 */
 @media (max-width: 1024px) {
-  .dashboard-section {
-    flex-direction: column;
-  }
-  
-  .hero-section {
-    flex-direction: column;
-  }
-  
-  .hero-left {
-    padding-right: 0;
-    margin-bottom: 40px;
-  }
-  
-  .hero-logo {
-    max-width: 200px;
-    margin-bottom: 20px;
-  }
+  .hero-title { font-size: 3.2rem; }
+  .steps-grid { grid-template-columns: repeat(3, 1fr); }
+  .features-grid { grid-template-columns: repeat(2, 1fr); }
+  .engine-grid { grid-template-columns: 1fr; }
+  .nav-center-links { display: none; }
 }
-</style>
-
-<style>
-/* English locale adjustments (unscoped to target html[lang]) */
-html[lang="en"] .main-title {
-  font-size: 3.5rem;
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  letter-spacing: -1px;
-}
-
-html[lang="en"] .hero-desc {
-  text-align: left;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  letter-spacing: 0;
-}
-
-html[lang="en"] .slogan-text {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  letter-spacing: 0;
-}
-
-html[lang="en"] .tag-row {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-html[lang="en"] .navbar .nav-links {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-/* Left pane: system status + workflow */
-html[lang="en"] .status-section {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-html[lang="en"] .status-section .status-ready {
-  font-size: 1.6rem;
-}
-
-html[lang="en"] .status-section .metric-value {
-  font-family: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-  font-size: 1.4rem;
-}
-
-html[lang="en"] .workflow-list .step-title {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-}
-
-html[lang="en"] .workflow-list .step-desc {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
-  font-size: 0.72rem !important;
-  line-height: 1.4 !important;
-}
-
-html[lang="en"] .workflow-list {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+@media (max-width: 640px) {
+  .hero-title { font-size: 2.4rem; }
+  .hero-actions { flex-direction: column; }
+  .steps-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .hero-stats { flex-direction: column; gap: 16px; }
+  .stat-divider { display: none; }
 }
 </style>
