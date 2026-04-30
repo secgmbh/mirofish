@@ -4,7 +4,9 @@
     <!-- NAVBAR -->
     <header class="hdr" :class="{ sticky: isSticky }">
       <div class="hdr-inner">
-        <div class="hdr-logo">BOTOPOLIS</div>
+        <div class="hdr-logo">
+          <img src="../assets/logo_bot.png" alt="Botopolis" class="hdr-logo-img" />
+        </div>
         <nav class="hdr-nav">
           <a class="hdr-link active" href="#">Home</a>
           <a class="hdr-link" @click="scrollToSteps" style="cursor:pointer">{{ $t('home.workflowSequence') }}</a>
@@ -639,4 +641,6 @@ body { margin: 0; padding: 0; background: #111111; color: #ffffff; }
 /* Hero body row layout */
 .hero-body { flex-direction: row !important; justify-content: space-between !important; align-items: center !important; }
 
+.hdr-logo { display: flex; align-items: center; }
+.hdr-logo-img { height: 38px; width: auto; object-fit: contain; }
 </style>
