@@ -12,9 +12,6 @@
         </nav>
         <div class="hdr-right">
           <LanguageSwitcher />
-          <a href="https://github.com/secgmbh/mirofish" target="_blank" class="hdr-cta">
-            <span>GitHub</span><i>&#8599;</i>
-          </a>
         </div>
       </div>
     </header>
@@ -322,7 +319,7 @@ body { margin: 0; padding: 0; background: #111111; color: #ffffff; }
 .hdr-cta i { font-style: normal; }
 
 /* ── HERO ── */
-.hero { position: relative; min-height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: flex-end; padding-bottom: 80px; }
+.hero { position: relative; min-height: 100vh; overflow: hidden; display: flex; flex-direction: column; justify-content: center; padding-top: 80px; }
 .hero-bg-anim { position: absolute; inset: 0; }
 
 /* Abstract wave layers mimicking the reference screenshot */
@@ -334,7 +331,7 @@ body { margin: 0; padding: 0; background: #111111; color: #ffffff; }
 .hba-noise { position: absolute; inset: 0; opacity: 0.04; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E"); background-size: 200px; }
 .hba-bottom-fade { position: absolute; bottom: 0; left: 0; right: 0; height: 260px; background: linear-gradient(to bottom, transparent, #111111); }
 
-.hero-body { position: relative; z-index: 1; max-width: 1320px; margin: 0 auto; padding: 0 48px; display: flex; align-items: flex-end; justify-content: space-between; gap: 40px; }
+.hero-body { position: relative; z-index: 1; max-width: 1320px; margin: 0 auto; padding: 60px 48px; display: flex; align-items: center; justify-content: space-between; gap: 60px; width: 100%; }
 .hero-text { max-width: 780px; padding-bottom: 20px; }
 .hero-h1 { font-family: 'Sora', Arial, sans-serif; font-size: 72px; font-weight: 600; line-height: 1.1; color: #ffffff; margin: 0 0 24px; letter-spacing: -2px; }
 .hero-sub { font-size: 16px; color: rgba(255,255,255,0.7); margin: 0 0 36px; line-height: 1.5; max-width: 480px; }
@@ -473,8 +470,8 @@ body { margin: 0; padding: 0; background: #111111; color: #ffffff; }
 .hms-divider { width: 1px; height: 32px; background: rgba(255,255,255,0.12); }
 /* Hero visual */
 .hero-visual { flex: 0 0 440px; position: relative; }
-.hero-img-wrap { position: relative; border-radius: 24px; overflow: hidden; }
-.hero-img { width: 100%; height: 380px; object-fit: cover; display: block; border-radius: 24px; }
+.hero-img-wrap { position: relative; }
+
 .hero-overlay-card { position: absolute; bottom: 20px; left: 20px; right: 20px; background: rgba(255,255,255,0.12); backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.2); border-radius: 16px; padding: 18px 20px; display: flex; align-items: center; gap: 14px; }
 .hoc-icon { font-size: 28px; color: #45d0bd; flex-shrink: 0; }
 .hoc-info { flex: 1; }
@@ -486,5 +483,37 @@ body { margin: 0; padding: 0; background: #111111; color: #ffffff; }
 /* Hero body layout update */
 .hero-body { align-items: center !important; }
 .hero-text { max-width: 580px !important; }
+
+
+/* Network Animation */
+.hero-anim-wrap { position: relative; width: 440px; height: 380px; flex-shrink: 0; }
+.hero-network-svg { width: 100%; height: 100%; }
+.net-node { animation: node-pulse 3s ease-in-out infinite; }
+.n1 { animation-delay: 0s; }
+.n2 { animation-delay: 0.6s; }
+.n3 { animation-delay: 1.2s; }
+.n4 { animation-delay: 0.9s; }
+.n5 { animation-delay: 1.8s; }
+.n6 { animation-delay: 0.3s; }
+.ns1,.ns2,.ns3,.ns4 { animation: node-pulse 4s ease-in-out infinite; }
+@keyframes node-pulse { 0%,100%{opacity:0.85;transform:scale(1)} 50%{opacity:1;transform:scale(1.3)} }
+.net-center-pulse { animation: center-ring 2.5s ease-out infinite; transform-origin: 210px 180px; }
+@keyframes center-ring { 0%{r:22;opacity:0.8} 100%{r:44;opacity:0} }
+/* Packet animations along lines */
+.pkt1 { animation: pkt-move-1 3s linear infinite; }
+.pkt2 { animation: pkt-move-2 4s linear infinite 1s; }
+.pkt3 { animation: pkt-move-3 3.5s linear infinite 0.5s; }
+@keyframes pkt-move-1 { 0%{cx:210;cy:180} 100%{cx:80;cy:80} }
+@keyframes pkt-move-2 { 0%{cx:80;cy:80} 100%{cx:340;cy:80} }
+@keyframes pkt-move-3 { 0%{cx:210;cy:180} 100%{cx:360;cy:220} }
+/* Floating badges */
+.hav-badge { position: absolute; background: rgba(255,255,255,0.1); backdrop-filter: blur(16px); border: 1px solid rgba(255,255,255,0.15); border-radius: 14px; padding: 12px 18px; display: flex; flex-direction: column; gap: 2px; }
+.hav-b1 { top: 20px; right: -10px; }
+.hav-b2 { bottom: 30px; left: -10px; }
+.hav-bn { font-family: 'Sora', Arial, sans-serif; font-size: 20px; font-weight: 700; color: #45d0bd; }
+.hav-bl { font-size: 11px; color: rgba(255,255,255,0.5); }
+/* Hero body fix */
+.hero-body { align-items: center !important; }
+.hero-text { max-width: 580px !important; flex: 1; }
 
 </style>
