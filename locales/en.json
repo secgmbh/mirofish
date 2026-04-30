@@ -73,9 +73,15 @@
   },
   "main": {
     "layoutGraph": "Graph",
-    "layoutSplit": "Split",
-    "layoutWorkbench": "Workbench",
-    "stepNames": ["Graph Build", "Env Setup", "Run Simulation", "Report Generation", "Deep Interaction"]
+    "layoutSplit": "Split View",
+    "layoutWorkbench": "Tools",
+    "stepNames": [
+      "Graph Build",
+      "Env Setup",
+      "Run Simulation",
+      "Report Generation",
+      "Deep Interaction"
+    ]
   },
   "step1": {
     "ontologyGeneration": "Ontology Generation",
@@ -295,7 +301,14 @@
     "graphDataLoading": "Loading graph data...",
     "waitingOntology": "Waiting for ontology generation...",
     "toggleMaximize": "Maximize/Restore",
-    "closeHint": "Close hint"
+    "closeHint": "Close hint",
+    "entityTypesTitle": "Entity Types",
+    "fieldName": "Name",
+    "fieldCreated": "Created",
+    "fieldProperties": "Properties",
+    "fieldSummary": "Summary",
+    "fieldLabels": "Labels",
+    "fieldUuid": "ID"
   },
   "history": {
     "title": "Simulation History",
@@ -661,5 +674,26 @@
     "llmSelectAgentFailed": "LLM agent selection failed, using default selection: {error}",
     "generateInterviewQuestionsFailed": "Failed to generate interview questions: {error}",
     "generateInterviewSummaryFailed": "Failed to generate interview summary: {error}"
+  },
+  "entityTypes": {
+    "Entity": "Entity",
+    "Organization": "Organization",
+    "Person": "Person",
+    "Company": "Company",
+    "Customer": "Customer",
+    "SalesTeam": "Sales Team",
+    "SalesRepresentative": "Sales Rep",
+    "IndustryExpert": "Industry Expert",
+    "MarketingTeam": "Marketing Team",
+    "RegulatoryAgency": "Regulatory Agency",
+    "MediaOutlet": "Media Outlet",
+    "Product": "Product",
+    "Event": "Event",
+    "Location": "Location",
+    "Government": "Government",
+    "Technology": "Technology",
+    "Project": "Project",
+    "Team": "Team",
+    "Department": "Department"
   }
 }

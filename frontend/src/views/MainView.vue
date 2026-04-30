@@ -3,7 +3,7 @@
     <!-- Header -->
     <header class="app-header">
       <div class="header-left">
-        <div class="brand" @click="router.push('/')">BOTOPOLIS</div>
+        <div class="brand" @click="router.push('/')"><img src="../assets/logo_bot.png" alt="Botopolis" class="brand-logo"/></div>
       </div>
       
       <div class="header-center">
@@ -421,13 +421,13 @@ onUnmounted(() => {
 
 /* Header */
 .app-header {
-  height: 60px;
-  border-bottom: 1px solid #EAEAEA;
+  height: 68px;
+  border-bottom: 1px solid rgba(255,255,255,0.1);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0 24px;
-  background: #FFF;
+  padding: 0 32px;
+  background: #0f1117;
   z-index: 100;
   position: relative;
 }
@@ -439,46 +439,57 @@ onUnmounted(() => {
 }
 
 .brand {
-  font-family: 'JetBrains Mono', monospace;
-  font-weight: 800;
-  font-size: 18px;
-  letter-spacing: 1px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.brand-logo {
+  height: 44px;
+  width: auto;
+  object-fit: contain;
 }
 
 .view-switcher {
   display: flex;
-  background: #F5F5F5;
+  background: rgba(255,255,255,0.06);
   padding: 4px;
-  border-radius: 6px;
+  border-radius: 10px;
   gap: 4px;
+  border: 1px solid rgba(255,255,255,0.08);
 }
 
 .switch-btn {
   border: none;
   background: transparent;
-  padding: 6px 16px;
-  font-size: 12px;
+  padding: 6px 18px;
+  font-size: 13px;
   font-weight: 600;
-  color: #666;
-  border-radius: 4px;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Manrope', Arial, sans-serif;
+  border-radius: 7px;
   cursor: pointer;
   transition: all 0.2s;
 }
 
 .switch-btn.active {
-  background: #FFF;
-  color: #000;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  background: rgba(69,208,189,0.15);
+  color: #45d0bd;
+  box-shadow: none;
+}
+
+.switch-btn:hover:not(.active) {
+  color: rgba(255,255,255,0.8);
+  background: rgba(255,255,255,0.05);
 }
 
 .status-indicator {
   display: flex;
   align-items: center;
   gap: 8px;
-  font-size: 12px;
-  color: #666;
+  font-size: 13px;
+  color: rgba(255,255,255,0.6);
   font-weight: 500;
+  font-family: 'Manrope', Arial, sans-serif;
 }
 
 .header-right {
@@ -497,18 +508,19 @@ onUnmounted(() => {
 .step-num {
   font-family: 'JetBrains Mono', monospace;
   font-weight: 700;
-  color: #999;
+  color: rgba(255,255,255,0.4);
 }
 
 .step-name {
   font-weight: 700;
-  color: #000;
+  color: #ffffff;
+  font-family: 'Manrope', Arial, sans-serif;
 }
 
 .step-divider {
   width: 1px;
   height: 14px;
-  background-color: #E0E0E0;
+  background-color: rgba(255,255,255,0.15);
 }
 
 .dot {

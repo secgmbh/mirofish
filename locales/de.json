@@ -73,9 +73,15 @@
   },
   "main": {
     "layoutGraph": "Graph",
-    "layoutSplit": "Geteilt",
-    "layoutWorkbench": "Werkbank",
-    "stepNames": ["Graph aufbauen", "Umgebung einrichten", "Simulation starten", "Bericht generieren", "Tiefe Interaktion"]
+    "layoutSplit": "Geteilte Ansicht",
+    "layoutWorkbench": "Werkzeuge",
+    "stepNames": [
+      "Graph aufbauen",
+      "Umgebung einrichten",
+      "Simulation starten",
+      "Bericht generieren",
+      "Tiefe Interaktion"
+    ]
   },
   "step1": {
     "ontologyGeneration": "Ontologie-Generierung",
@@ -295,7 +301,14 @@
     "graphDataLoading": "Graph-Daten werden geladen...",
     "waitingOntology": "Warte auf Ontologie-Generierung...",
     "toggleMaximize": "Maximieren/Wiederherstellen",
-    "closeHint": "Hinweis schließen"
+    "closeHint": "Hinweis schließen",
+    "entityTypesTitle": "Entitätstypen",
+    "fieldName": "Name",
+    "fieldCreated": "Erstellt",
+    "fieldProperties": "Eigenschaften",
+    "fieldSummary": "Zusammenfassung",
+    "fieldLabels": "Bezeichnungen",
+    "fieldUuid": "ID"
   },
   "history": {
     "title": "Simulationsverlauf",
@@ -661,5 +674,26 @@
     "llmSelectAgentFailed": "LLM-Agentenauswahl fehlgeschlagen, Standardauswahl wird verwendet: {error}",
     "generateInterviewQuestionsFailed": "Interviewfragen konnten nicht generiert werden: {error}",
     "generateInterviewSummaryFailed": "Interview-Zusammenfassung konnte nicht generiert werden: {error}"
+  },
+  "entityTypes": {
+    "Entity": "Entität",
+    "Organization": "Organisation",
+    "Person": "Person",
+    "Company": "Unternehmen",
+    "Customer": "Kunde",
+    "SalesTeam": "Vertriebsteam",
+    "SalesRepresentative": "Vertriebsmitarbeiter",
+    "IndustryExpert": "Branchenexperte",
+    "MarketingTeam": "Marketingteam",
+    "RegulatoryAgency": "Regulierungsbehörde",
+    "MediaOutlet": "Medienkanal",
+    "Product": "Produkt",
+    "Event": "Ereignis",
+    "Location": "Standort",
+    "Government": "Behörde",
+    "Technology": "Technologie",
+    "Project": "Projekt",
+    "Team": "Team",
+    "Department": "Abteilung"
   }
 }
