@@ -2,7 +2,7 @@
   <div class="process-page">
     <!-- 顶部导航栏 -->
     <nav class="navbar">
-      <div class="nav-brand" @click="goHome">MIROFISH</div>
+      <div class="nav-brand" @click="goHome">BOTOPOLIS</div>
       
       <!-- 中间步骤指示器 -->
       <div class="nav-center">
@@ -462,7 +462,7 @@ const entityTypes = computed(() => {
   if (!graphData.value?.nodes) return []
   
   const typeMap = {}
-  const colors = ['#FF6B35', '#004E89', '#7B2D8E', '#1A936F', '#C5283D', '#E9724C']
+  const colors = ['#3B82F6', '#004E89', '#7B2D8E', '#1A936F', '#C5283D', '#E9724C']
   
   graphData.value.nodes.forEach(node => {
     const type = node.labels?.find(l => l !== 'Entity') || 'Entity'
@@ -944,7 +944,7 @@ const renderGraph = () => {
   const types = [...new Set(nodes.map(n => n.type))]
   const colorScale = d3.scaleOrdinal()
     .domain(types)
-    .range(['#FF6B35', '#004E89', '#7B2D8E', '#1A936F', '#C5283D', '#E9724C', '#2D3436', '#6C5CE7'])
+    .range(['#3B82F6', '#004E89', '#7B2D8E', '#1A936F', '#C5283D', '#E9724C', '#2D3436', '#6C5CE7'])
   
   // 力导向布局
   const simulation = d3.forceSimulation(nodes)
@@ -1095,7 +1095,7 @@ onUnmounted(() => {
 :root {
   --black: #000000;
   --white: #FFFFFF;
-  --orange: #FF6B35;
+  --orange: #3B82F6;
   --gray-light: #F5F5F5;
   --gray-border: #E0E0E0;
   --gray-text: #666666;
@@ -1143,7 +1143,7 @@ onUnmounted(() => {
 }
 
 .step-badge {
-  background: #FF6B35;
+  background: #3B82F6;
   color: #fff;
   padding: 2px 8px;
   font-size: 0.7rem;
@@ -1172,7 +1172,7 @@ onUnmounted(() => {
 }
 
 .status-dot.processing {
-  background: #FF6B35;
+  background: #3B82F6;
   animation: pulse 1.5s infinite;
 }
 
@@ -1235,7 +1235,7 @@ onUnmounted(() => {
 }
 
 .header-deco {
-  color: #FF6B35;
+  color: #3B82F6;
   font-size: 0.8rem;
 }
 
@@ -1353,7 +1353,7 @@ onUnmounted(() => {
   height: 60px;
   top: 10px;
   left: 10px;
-  border-right-color: #FF6B35;
+  border-right-color: #3B82F6;
   animation-delay: 0.2s;
 }
 
@@ -1414,15 +1414,15 @@ onUnmounted(() => {
   gap: 8px;
   padding: 8px 16px;
   background: rgba(255, 107, 53, 0.1);
-  border: 1px solid #FF6B35;
+  border: 1px solid #3B82F6;
   font-size: 0.8rem;
-  color: #FF6B35;
+  color: #3B82F6;
 }
 
 .building-dot {
   width: 8px;
   height: 8px;
-  background: #FF6B35;
+  background: #3B82F6;
   border-radius: 50%;
   animation: pulse 1s infinite;
 }
@@ -1526,7 +1526,7 @@ onUnmounted(() => {
   line-height: 1.6;
   padding: 10px;
   background: #F9F9F9;
-  border-left: 3px solid #FF6B35;
+  border-left: 3px solid #3B82F6;
 }
 
 .detail-labels {
@@ -1569,7 +1569,7 @@ onUnmounted(() => {
 .edge-type {
   padding: 2px 8px;
   font-size: 0.75rem;
-  background: #FF6B35;
+  background: #3B82F6;
   color: #fff;
 }
 
@@ -1698,7 +1698,7 @@ onUnmounted(() => {
 }
 
 .right-panel .header-icon {
-  color: #FF6B35;
+  color: #3B82F6;
   margin-right: 8px;
 }
 
@@ -1723,7 +1723,7 @@ onUnmounted(() => {
 }
 
 .process-phase.active {
-  border-color: #FF6B35;
+  border-color: #3B82F6;
 }
 
 .process-phase.completed {
@@ -1755,7 +1755,7 @@ onUnmounted(() => {
 }
 
 .process-phase.active .phase-num {
-  color: #FF6B35;
+  color: #3B82F6;
 }
 
 .process-phase.completed .phase-num {
@@ -1786,7 +1786,7 @@ onUnmounted(() => {
 }
 
 .phase-status.active {
-  background: #FF6B35;
+  background: #3B82F6;
   color: #fff;
 }
 
@@ -1842,7 +1842,7 @@ onUnmounted(() => {
 }
 
 .rel-name {
-  color: #FF6B35;
+  color: #3B82F6;
   font-weight: 500;
 }
 
@@ -1866,7 +1866,7 @@ onUnmounted(() => {
   width: 20px;
   height: 20px;
   border: 2px solid #FFE0D6;
-  border-top-color: #FF6B35;
+  border-top-color: #3B82F6;
   border-radius: 50%;
   animation: spin 1s linear infinite;
 }
@@ -1899,7 +1899,7 @@ onUnmounted(() => {
 
 .progress-fill {
   height: 100%;
-  background: #FF6B35;
+  background: #3B82F6;
   transition: width 0.3s;
 }
 
@@ -1914,7 +1914,7 @@ onUnmounted(() => {
 }
 
 .progress-percent {
-  color: #FF6B35;
+  color: #3B82F6;
   font-weight: 600;
 }
 
@@ -1971,7 +1971,7 @@ onUnmounted(() => {
 }
 
 .next-step-btn:hover:not(:disabled) {
-  background: #FF6B35;
+  background: #3B82F6;
 }
 
 .next-step-btn:disabled {
@@ -1998,7 +1998,7 @@ onUnmounted(() => {
 }
 
 .project-icon {
-  color: #FF6B35;
+  color: #3B82F6;
 }
 
 .project-title {

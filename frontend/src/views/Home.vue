@@ -2,10 +2,10 @@
   <div class="home-container">
     <!-- 顶部导航栏 -->
     <nav class="navbar">
-      <div class="nav-brand">MIROFISH</div>
+      <div class="nav-brand">BOTOPOLIS</div>
       <div class="nav-links">
         <LanguageSwitcher />
-        <a href="https://github.com/666ghj/MiroFish" target="_blank" class="github-link">
+        <a href="https://github.com/secgmbh/mirofish" target="_blank" class="github-link">
           {{ $t('nav.visitGithub') }} <span class="arrow">↗</span>
         </a>
       </div>
@@ -16,7 +16,7 @@
       <section class="hero-section">
         <div class="hero-left">
           <div class="tag-row">
-            <span class="orange-tag">{{ $t('home.tagline') }}</span>
+            <span class="blue-tag">{{ $t('home.tagline') }}</span>
             <span class="version-text">{{ $t('home.version') }}</span>
           </div>
           
@@ -29,7 +29,7 @@
             <p>
               <i18n-t keypath="home.heroDesc" tag="span">
                 <template #brand><span class="highlight-bold">{{ $t('home.heroDescBrand') }}</span></template>
-                <template #agentScale><span class="highlight-orange">{{ $t('home.heroDescAgentScale') }}</span></template>
+                <template #agentScale><span class="highlight-blue">{{ $t('home.heroDescAgentScale') }}</span></template>
                 <template #optimalSolution><span class="highlight-code">{{ $t('home.heroDescOptimalSolution') }}</span></template>
               </i18n-t>
             </p>
@@ -44,7 +44,15 @@
         <div class="hero-right">
           <!-- Logo 区域 -->
           <div class="logo-container">
-            <img src="../assets/logo/MiroFish_logo_left.jpeg" alt="MiroFish Logo" class="hero-logo" />
+            <div class="brand-visual">
+              <div class="brand-icon-grid">
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+                <span></span><span></span><span></span>
+              </div>
+              <div class="brand-label-large">BOTOPOLIS</div>
+              <div class="brand-sublabel">Swarm Intelligence Engine</div>
+            </div>
           </div>
           
           <button class="scroll-down-btn" @click="scrollToBottom">
@@ -314,12 +322,15 @@ const startSimulation = () => {
 <style scoped>
 /* 全局变量与重置 */
 :root {
-  --black: #000000;
+  --black: #0F1B3D;
   --white: #FFFFFF;
-  --orange: #FF4500;
-  --gray-light: #F5F5F5;
+  --blue: #2563EB;
+  --blue-dark: #1D4ED8;
+  --blue-light: #EFF6FF;
+  --navy: #0F1B3D;
+  --gray-light: #F8FAFF;
   --gray-text: #666666;
-  --border: #E5E5E5;
+  --border: #DBEAFE;
   /* 
     使用 Space Grotesk 作为主要标题字体，JetBrains Mono 作为代码/标签字体
     确保已在 index.html 引入这些 Google Fonts 
@@ -409,8 +420,8 @@ const startSimulation = () => {
   font-size: 0.8rem;
 }
 
-.orange-tag {
-  background: var(--orange);
+.blue-tag {
+  background: var(--blue);
   color: var(--white);
   padding: 4px 10px;
   font-weight: 700;
@@ -434,7 +445,7 @@ const startSimulation = () => {
 }
 
 .gradient-text {
-  background: linear-gradient(90deg, #000000 0%, #444444 100%);
+  background: linear-gradient(90deg, #1D4ED8 0%, #60A5FA 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   display: inline-block;
@@ -459,8 +470,8 @@ const startSimulation = () => {
   font-weight: 700;
 }
 
-.highlight-orange {
-  color: var(--orange);
+.highlight-blue {
+  color: var(--blue);
   font-weight: 700;
   font-family: var(--font-mono);
 }
@@ -480,13 +491,13 @@ const startSimulation = () => {
   font-weight: 520;
   color: var(--black);
   letter-spacing: 1px;
-  border-left: 3px solid var(--orange);
+  border-left: 3px solid var(--blue);
   padding-left: 15px;
   margin-top: 20px;
 }
 
 .blinking-cursor {
-  color: var(--orange);
+  color: var(--blue);
   animation: blink 1s step-end infinite;
   font-weight: 700;
 }
@@ -499,7 +510,7 @@ const startSimulation = () => {
 .decoration-square {
   width: 16px;
   height: 16px;
-  background: var(--orange);
+  background: var(--blue);
 }
 
 .hero-right {
@@ -531,13 +542,13 @@ const startSimulation = () => {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  color: var(--orange);
+  color: var(--blue);
   font-size: 1.2rem;
   transition: all 0.2s;
 }
 
 .scroll-down-btn:hover {
-  border-color: var(--orange);
+  border-color: var(--blue);
 }
 
 /* Dashboard 双栏布局 */
@@ -571,7 +582,7 @@ const startSimulation = () => {
 }
 
 .status-dot {
-  color: var(--orange);
+  color: var(--blue);
   font-size: 0.8rem;
 }
 
@@ -673,7 +684,7 @@ const startSimulation = () => {
 }
 
 .console-box {
-  border: 1px solid #CCC; /* 外部实线 */
+  border: 1px solid #BFDBFE;
   padding: 8px; /* 内边距形成双重边框感 */
 }
 
@@ -695,7 +706,7 @@ const startSimulation = () => {
 }
 
 .upload-zone {
-  border: 1px dashed #CCC;
+  border: 1px dashed #93C5FD;
   height: 200px;
   overflow-y: auto;
   display: flex;
@@ -850,8 +861,8 @@ const startSimulation = () => {
 }
 
 .start-engine-btn:hover:not(:disabled) {
-  background: var(--orange);
-  border-color: var(--orange);
+  background: var(--blue);
+  border-color: var(--blue);
   transform: translateY(-2px);
 }
 
@@ -869,9 +880,9 @@ const startSimulation = () => {
 
 /* 引导动画：微妙的边框脉冲 */
 @keyframes pulse-border {
-  0% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.2); }
-  70% { box-shadow: 0 0 0 6px rgba(0, 0, 0, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(0, 0, 0, 0); }
+  0% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(37, 99, 235, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(37, 99, 235, 0); }
 }
 
 /* 响应式适配 */

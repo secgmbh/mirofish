@@ -26,8 +26,8 @@
     "files": "Dateien"
   },
   "meta": {
-    "title": "MiroFish - Alles vorhersagen",
-    "description": "MiroFish - KI-gestütztes Schwarm-Simulations-System"
+    "title": "Botopolis - Alles vorhersagen",
+    "description": "Botopolis - KI-gestütztes Schwarm-Simulations-System"
   },
   "nav": {
     "visitGithub": "GitHub-Seite besuchen"
@@ -38,7 +38,7 @@
     "heroTitle1": "Berichte hochladen,",
     "heroTitle2": "Die Zukunft vorhersagen",
     "heroDesc": "Aus einem einzigen Dokument extrahiert {brand} Realitätssamen und generiert automatisch eine Parallelwelt mit bis zu {agentScale}. Injiziere Variablen aus der Vogelperspektive, um das {optimalSolution} in komplexen Gruppendynamiken zu finden.",
-    "heroDescBrand": "MiroFish",
+    "heroDescBrand": "Botopolis",
     "heroDescAgentScale": "millionenfachen Agenten",
     "heroDescOptimalSolution": "\"lokale Optimum\"",
     "slogan": "Lass Agenten die Zukunft proben, damit Entscheidungen siegen",
@@ -67,7 +67,7 @@
     "inputParams": "Eingabeparameter",
     "simulationPrompt": ">_ 02 / Simulations-Prompt",
     "promptPlaceholder": "// Beschreibe deine Simulations- oder Vorhersageanforderung in natürlicher Sprache",
-    "engineBadge": "Engine: MiroFish-V1.0",
+    "engineBadge": "Engine: Botopolis-V1.0",
     "startEngine": "Engine starten",
     "initializing": "Initialisierung..."
   },
@@ -145,7 +145,7 @@
     "setupComplete": "Einrichtung abgeschlossen",
     "setupCompleteDesc": "Simulationsumgebung ist bereit. Du kannst jetzt die Simulation starten.",
     "roundsConfig": "Simulations-Rundenkonfiguration",
-    "roundsConfigDesc": "MiroFish plant automatisch die Simulation von {hours} realen Stunden, wobei jede Runde {minutesPerRound} Minuten vergangener Zeit entspricht",
+    "roundsConfigDesc": "Botopolis plant automatisch die Simulation von {hours} realen Stunden, wobei jede Runde {minutesPerRound} Minuten vergangener Zeit entspricht",
     "customToggle": "Anpassen",
     "roundsUnit": "Runden",
     "estimatedDuration": "Für 100 Agenten: ca. ~{minutes} Minuten",
@@ -257,7 +257,7 @@
     "selectChatTarget": "Chat-Ziel auswählen",
     "sendSurvey": "Umfrage an die Welt senden",
     "reportAgentChat": "Report-Agent - Chat",
-    "reportAgentDesc": "Eine Konversationsversion des Berichtsgenerierungs-Agenten mit Zugriff auf 4 professionelle Tools und das vollständige MiroFish-Gedächtnis",
+    "reportAgentDesc": "Eine Konversationsversion des Berichtsgenerierungs-Agenten mit Zugriff auf 4 professionelle Tools und das vollständige Botopolis-Gedächtnis",
     "toolInsightForge": "InsightForge Tiefenattribution",
     "toolInsightForgeDesc": "Verknüpft Realitätssamen-Daten mit dem Simulationszustand und kombiniert globales/lokales Gedächtnis für zeitübergreifende Tiefenattributionsanalyse",
     "toolPanoramaSearch": "PanoramaSearch Vollverfolgung",
