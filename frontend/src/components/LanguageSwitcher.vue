@@ -63,62 +63,70 @@ onUnmounted(() => {
 .language-switcher {
   position: relative;
   display: inline-block;
-  font-family: 'JetBrains Mono', monospace;
 }
 
-/* Light theme (default - for white header backgrounds) */
 .switcher-trigger {
   background: transparent;
-  color: #333;
-  border: 1px solid #CCC;
-  padding: 4px 12px;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 6px 16px;
+  border-radius: 100px;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
   cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 6px;
-  transition: border-color 0.2s, opacity 0.2s;
+  gap: 8px;
+  transition: all 0.2s;
+  white-space: nowrap;
 }
 
 .switcher-trigger:hover {
-  border-color: #999;
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .caret {
   font-size: 0.6rem;
+  opacity: 0.6;
 }
 
 .switcher-dropdown {
   position: absolute;
-  top: 100%;
+  top: calc(100% + 8px);
   right: 0;
-  margin-top: 4px;
-  background: #FFFFFF;
-  border: 1px solid #DDD;
+  background: rgba(20, 20, 35, 0.95);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
   list-style: none;
-  padding: 4px 0;
-  min-width: 100%;
+  padding: 6px;
+  min-width: 130px;
   z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
 }
 
 .switcher-option {
-  padding: 6px 12px;
-  font-size: 0.8rem;
-  color: #333;
+  padding: 8px 14px;
+  font-family: 'Manrope', Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.65);
   cursor: pointer;
   white-space: nowrap;
-  transition: background 0.15s;
+  border-radius: 8px;
+  transition: all 0.15s;
 }
 
 .switcher-option:hover {
-  background: #F0F0F0;
+  background: rgba(255, 255, 255, 0.08);
+  color: #ffffff;
 }
 
 .switcher-option.active {
-  color: var(--orange, #FF4500);
+  color: #45d0bd;
+  background: rgba(69, 208, 189, 0.1);
 }
-
-
 </style>
