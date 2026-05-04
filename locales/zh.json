@@ -515,6 +515,7 @@
     "startSimAutoRounds": "开始模拟，使用自动配置轮数: {rounds} 轮",
     "startGeneratingAgentProfiles": "开始生成Agent人设...",
     "agentProfile": "→ Agent人设 {current}/{total}: {name} ({profession})",
+    "profileCompleted": "已完成 {current}/{total}: {name}（{entity_type}）",
     "allProfilesComplete": "✓ 全部 {count} 个Agent人设生成完成",
     "loadingExistingConfig": "正在加载已有配置数据...",
     "loadedAgentProfiles": "已加载 {count} 个Agent人设",

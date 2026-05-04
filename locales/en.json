@@ -528,6 +528,7 @@
     "startSimAutoRounds": "Starting simulation, auto-configured rounds: {rounds}",
     "startGeneratingAgentProfiles": "Generating agent personas...",
     "agentProfile": "→ Agent persona {current}/{total}: {name} ({profession})",
+    "profileCompleted": "Completed {current}/{total}: {name} ({entity_type})",
     "allProfilesComplete": "✓ All {count} agent personas generated",
     "loadingExistingConfig": "Loading existing config data...",
     "loadedAgentProfiles": "Loaded {count} agent personas",
