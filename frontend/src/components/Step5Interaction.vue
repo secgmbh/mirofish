@@ -10,6 +10,10 @@
             <div class="report-meta">
               <span class="report-tag">{{ $t('step4.predictionReport') }}</span>
               <span class="report-id">ID: {{ reportId || 'REF-2024-X92' }}</span>
+              <button class="pdf-btn" @click="downloadPdf" title="Als PDF herunterladen">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                PDF
+              </button>
             </div>
             <h1 class="main-title">{{ reportOutline.title }}</h1>
             <p class="sub-title">{{ reportOutline.summary }}</p>
@@ -414,6 +418,7 @@
 import { ref, computed, watch, onMounted, onUnmounted, nextTick } from 'vue'
 import { useI18n } from 'vue-i18n'
 import { chatWithReport, getReport, getAgentLog } from '../api/report'
+import html2pdf from 'html2pdf.js'
 import { interviewAgents, getSimulationProfilesRealtime } from '../api/simulation'
 
 const { t } = useI18n()
@@ -458,6 +463,19 @@ const profiles = ref([])
 // Helper Methods
 const isSectionCompleted = (sectionIndex) => {
   return !!generatedSections.value[sectionIndex]
+}
+
+const downloadPdf = () => {
+  const el = document.querySelector('.left-panel.report-style')
+  if (!el) return
+  const filename = `${reportOutline.value?.title || 'report'}.pdf`
+  html2pdf().set({
+    margin: [10, 10, 10, 10],
+    filename,
+    image: { type: 'jpeg', quality: 0.98 },
+    html2canvas: { scale: 2, useCORS: true },
+    jsPDF: { unit: 'mm', format: 'a4', orientation: 'portrait' }
+  }).from(el).save()
 }
 
 // Refs
@@ -2580,5 +2598,34 @@ watch(() => props.simulationId, (newId) => {
 /* English locale: smaller report title */
 html[lang="en"] .report-header-block .main-title {
   font-size: 28px;
+}
+</style>
+
+<style scoped>
+.report-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+  width: 100%;
+}
+
+.pdf-btn {
+  margin-left: auto;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: #374151;
+  background: #F3F4F6;
+  border: 1px solid #D1D5DB;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.pdf-btn:hover {
+  background: #E5E7EB;
 }
 </style>
