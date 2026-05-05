@@ -2388,6 +2388,7 @@ watch(() => props.reportId, (newId) => {
   align-items: center;
   gap: 12px;
   margin-bottom: 24px;
+  width: 100%;
 }
 
 .report-tag {
