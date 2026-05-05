@@ -214,6 +214,7 @@
     "generatingReportBtn": "Starting..."
   },
   "step4": {
+    "predictionReport": "Prediction Report",
     "generatingSection": "Generating {title}...",
     "goToInteraction": "Enter Deep Interaction",
     "waitingForReportAgent": "Waiting for Report Agent...",

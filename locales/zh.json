@@ -208,6 +208,7 @@
     "generatingReportBtn": "启动中..."
   },
   "step4": {
+    "predictionReport": "预测报告",
     "generatingSection": "正在生成{title}...",
     "goToInteraction": "进入深度互动",
     "waitingForReportAgent": "Waiting for Report Agent...",

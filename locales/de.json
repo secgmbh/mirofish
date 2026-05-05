@@ -214,6 +214,7 @@
     "generatingReportBtn": "Wird gestartet..."
   },
   "step4": {
+    "predictionReport": "Prognose-Bericht",
     "generatingSection": "{title} wird generiert...",
     "goToInteraction": "Tiefe Interaktion starten",
     "waitingForReportAgent": "Warte auf Report-Agent...",
